@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.colorful {
+  width: 24.6px;
+  height: 24.6px;
+  border-radius: 50%;
+  background: #594545;
+  animation: colorful-o7soaomd 1.5s infinite linear;
+}
+
+@keyframes colorful-o7soaomd {
+  0% {
+    box-shadow: 0 -33.6px #eadbc8,
+      calc(33.6px * 0.707) calc(-33.6px * 0.707) #dac0a3, 33.6px 0 #eadbc8,
+      0 0 #dac0a3, 0 0 #eadbc8, 0 0 #dac0a3, 0 0 #eadbc8, 0 0 #dac0a3;
+  }
+
+  12.5% {
+    box-shadow: 0 0 #eadbc8, calc(33.6px * 0.707) calc(-33.6px * 0.707) #dac0a3,
+      33.6px 0 #eadbc8, calc(33.6px * 0.707) calc(33.6px * 0.707) #dac0a3,
+      0 0 #eadbc8, 0 0 #dac0a3, 0 0 #eadbc8, 0 0 #dac0a3;
+  }
+
+  25% {
+    box-shadow: 0 0 #eadbc8, 0 0 #dac0a3, 33.6px 0 #eadbc8,
+      calc(33.6px * 0.707) calc(33.6px * 0.707) #dac0a3, 0 33.6px #eadbc8,
+      0 0 #dac0a3, 0 0 #eadbc8, 0 0 #dac0a3;
+  }
+
+  37.5% {
+    box-shadow: 0 0 #eadbc8, 0 0 #dac0a3, 0 0 #eadbc8,
+      calc(33.6px * 0.707) calc(33.6px * 0.707) #dac0a3, 0 33.6px #eadbc8,
+      calc(-33.6px * 0.707) calc(33.6px * 0.707) #dac0a3, 0 0 #eadbc8,
+      0 0 #dac0a3;
+  }
+
+  50% {
+    box-shadow: 0 0 #eadbc8, 0 0 #dac0a3, 0 0 #eadbc8, 0 0 #dac0a3,
+      0 33.6px #eadbc8, calc(-33.6px * 0.707) calc(33.6px * 0.707) #dac0a3,
+      -33.6px 0 #eadbc8, 0 0 #dac0a3;
+  }
+
+  62.5% {
+    box-shadow: 0 0 #eadbc8, 0 0 #dac0a3, 0 0 #eadbc8, 0 0 #dac0a3, 0 0 #eadbc8,
+      calc(-33.6px * 0.707) calc(33.6px * 0.707) #dac0a3, -33.6px 0 #eadbc8,
+      calc(-33.6px * 0.707) calc(-33.6px * 0.707) #dac0a3;
+  }
+
+  75% {
+    box-shadow: 0 -33.6px #eadbc8, 0 0 #dac0a3, 0 0 #eadbc8, 0 0 #dac0a3,
+      0 0 #eadbc8, 0 0 #dac0a3, -33.6px 0 #eadbc8,
+      calc(-33.6px * 0.707) calc(-33.6px * 0.707) #dac0a3;
+  }
+
+  87.5% {
+    box-shadow: 0 -33.6px #eadbc8,
+      calc(33.6px * 0.707) calc(-33.6px * 0.707) #dac0a3, 0 0 #eadbc8,
+      0 0 #dac0a3, 0 0 #eadbc8, 0 0 #dac0a3, 0 0 #eadbc8,
+      calc(-33.6px * 0.707) calc(-33.6px * 0.707) #dac0a3;
+  }
+
+  100% {
+    box-shadow: 0 -33.6px #eadbc8,
+      calc(33.6px * 0.707) calc(-33.6px * 0.707) #dac0a3, 33.6px 0 #eadbc8,
+      0 0 #dac0a3, 0 0 #eadbc8, 0 0 #dac0a3, 0 0 #eadbc8, 0 0 #dac0a3;
+  }
+}

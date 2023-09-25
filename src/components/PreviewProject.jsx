@@ -8,13 +8,13 @@ function PreviewProject({ project }) {
   const { auth } = useAuth();
 
   return (
-    <div className="bg-base-300 p-5 rounded-lg shadow mb-4 max-w-3xl mx-auto">
-      <div className="flex justify-between items-start gap-6">
+    <div className="max-w-3xl p-5 mx-auto mb-4 rounded-lg shadow bg-base-300">
+      <div className="flex items-start justify-between gap-6">
         <div>
-          <span className="text-gray-700 font-bold text-xl">
+          <span className="text-xl font-bold text-gray-700">
             {project.name}
           </span>{" "}
-          <span className="text-gray-400 font-semibold text-lg">
+          <span className="text-lg font-semibold text-gray-400">
             {project.client}
           </span>
           <div className="flex flex-col my-1">
@@ -27,7 +27,11 @@ function PreviewProject({ project }) {
           {formatDate(project.deliveryDate)}
         </span>
       </div>
-      <Link to={`${project._id}`} className="link link-neutral">
+      <Link
+        to={`${project._id}`}
+        className="link link-neutral"
+        data-cy="preview-project-link"
+      >
         Ver proyecto
       </Link>
     </div>

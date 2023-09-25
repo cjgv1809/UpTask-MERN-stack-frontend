@@ -15,23 +15,24 @@ function Header({ toggleSidebar, hamburgerButtonRef }) {
   };
 
   return (
-    <header className="navbar justify-between md:justify-normal bg-neutral text-neutral-content p-5 sticky top-0 z-40 lg:z-50">
+    <header className="sticky top-0 z-40 justify-between p-5 navbar md:justify-normal bg-neutral text-neutral-content lg:z-50">
       <button
         type="button"
         className="flex-none lg:hidden"
         onClick={toggleSidebar}
         ref={hamburgerButtonRef}
+        data-cy="hamburger-button"
       >
         <label
           htmlFor="my-drawer-2"
-          className="btn btn-circle swap swap-rotate mr-2"
+          className="mr-2 btn btn-circle swap swap-rotate"
         >
           {/* this hidden checkbox controls the state */}
           <input type="checkbox" />
 
           {/* hamburger icon */}
           <svg
-            className="swap-off fill-current h-6 w-6"
+            className="w-6 h-6 fill-current swap-off"
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -42,7 +43,7 @@ function Header({ toggleSidebar, hamburgerButtonRef }) {
 
           {/* close icon */}
           <svg
-            className="swap-on fill-current h-6 w-6"
+            className="w-6 h-6 fill-current swap-on"
             xmlns="http://www.w3.org/2000/svg"
             width="32"
             height="32"
@@ -52,8 +53,8 @@ function Header({ toggleSidebar, hamburgerButtonRef }) {
           </svg>
         </label>
       </button>
-      <div className="hidden md:block flex-1">
-        <Link to="/projects" className="normal-case text-xl font-black">
+      <div className="flex-1 hidden md:block">
+        <Link to="/projects" className="text-xl font-black normal-case">
           UpTask
         </Link>
       </div>
@@ -89,7 +90,7 @@ function Header({ toggleSidebar, hamburgerButtonRef }) {
                 height="48"
                 src="https://img.icons8.com/material-rounded/48/000000/user-male-circle.png"
                 alt="imagen de usuario"
-                className="bg-base-100 rounded-full"
+                className="rounded-full bg-base-100"
               />
             </div>
           </label>

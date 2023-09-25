@@ -4,7 +4,8 @@ import Alert from "./Alert";
 
 function FormCollaborator() {
   const [email, setEmail] = useState("");
-  const { showAlert, alert, submitCollaborator, setCollaborator } = useProjects();
+  const { showAlert, alert, submitCollaborator, setCollaborator } =
+    useProjects();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +25,11 @@ function FormCollaborator() {
   };
 
   return (
-    <form className="my-5 max-w-sm mx-auto" onSubmit={handleSubmit}>
+    <form
+      className="max-w-sm mx-auto my-5"
+      onSubmit={handleSubmit}
+      data-cy="submit-collaborator"
+    >
       {alert.title && alert.message && (
         <Alert
           title={alert.title}
@@ -33,7 +38,7 @@ function FormCollaborator() {
         />
       )}
 
-      <div className="form-control mb-2">
+      <div className="mb-2 form-control">
         <label className="label" htmlFor="email">
           <span className="label-text">Email Colaborador</span>
         </label>
@@ -44,10 +49,15 @@ function FormCollaborator() {
           className="input input-bordered"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          data-cy="search-email-collaborator-input"
         />
       </div>
 
-      <button type="submit" className="btn btn-primary btn-block mt-5">
+      <button
+        type="submit"
+        className="mt-5 btn btn-primary btn-block"
+        data-cy="search-collaborator-button"
+      >
         <span>Buscar colaborador</span>
       </button>
     </form>

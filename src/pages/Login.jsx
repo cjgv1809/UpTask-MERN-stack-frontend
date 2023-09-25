@@ -55,14 +55,15 @@ function Login() {
 
   return (
     <div className="max-w-xl">
-      <h1 className="text-center text-4xl font-bold font-heading leading-9 tracking-wide text-gray-400">
+      <h1 className="text-4xl font-bold leading-9 tracking-wide text-center text-gray-400 font-heading">
         Inicia sesión y administra tus{" "}
         <span className="text-accent">proyectos</span>
       </h1>
 
       <form
-        className="my-10 space-y-4 form-control w-full max-w-xs mx-auto"
+        className="w-full max-w-xs mx-auto my-10 space-y-4 form-control"
         onSubmit={handleSubmit}
+        data-cy="login-form"
       >
         {alert.title && alert.message && (
           <Alert
@@ -72,32 +73,38 @@ function Login() {
           />
         )}
         <div>
-          <label htmlFor="email" className="label font-semibold">
+          <label htmlFor="email" className="font-semibold label">
             Email
           </label>
           <input
             id="email"
             type="email"
             placeholder="Ingresa tu email"
-            className="input input-bordered w-full max-w-xs focus:outline-accent-focus"
+            className="w-full max-w-xs input input-bordered focus:outline-accent-focus"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            data-cy="email-input"
           />
         </div>
         <div>
-          <label htmlFor="password" className="label font-semibold">
+          <label htmlFor="password" className="font-semibold label">
             Contraseña
           </label>
           <input
             id="password"
             type="password"
             placeholder="Ingresa tu contraseña"
-            className="input input-bordered w-full max-w-xs focus:outline-accent-focus"
+            className="w-full max-w-xs input input-bordered focus:outline-accent-focus"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            data-cy="password-input"
           />
         </div>
-        <button className="btn btn-primary btn-block" type="submit">
+        <button
+          className="btn btn-primary btn-block"
+          type="submit"
+          data-cy="submit-login"
+        >
           <span>Iniciar sesión</span>
         </button>
       </form>
@@ -105,7 +112,8 @@ function Login() {
       <div className="text-center">
         <Link
           to="/forgot-password"
-          className="text-accent text-sm font-semibold hover:underline"
+          className="text-sm font-semibold text-accent hover:underline"
+          data-cy="forgot-password-link"
         >
           ¿Olvidaste tu contraseña?
         </Link>
@@ -114,7 +122,8 @@ function Login() {
           <span className="text-gray-400">¿No tienes una cuenta?</span>
           <Link
             to="/register"
-            className="text-accent text-sm font-semibold hover:underline"
+            className="text-sm font-semibold text-accent hover:underline"
+            data-cy="register-link"
           >
             {" "}
             Regístrate

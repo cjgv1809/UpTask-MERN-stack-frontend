@@ -50,14 +50,15 @@ function ForgotPassword() {
 
   return (
     <div className="max-w-xl">
-      <h1 className="text-center text-4xl font-bold font-heading leading-9 tracking-wide text-gray-400">
+      <h1 className="text-4xl font-bold leading-9 tracking-wide text-center text-gray-400 font-heading">
         Recupera tu acceso y no pierdas tus{" "}
         <span className="text-accent">proyectos</span>
       </h1>
 
       <form
-        className="my-10 space-y-4 form-control w-full max-w-xs mx-auto"
+        className="w-full max-w-xs mx-auto my-10 space-y-4 form-control"
         onSubmit={handleSubmit}
+        data-cy="forgot-password-form"
       >
         {alert.title && alert.message && (
           <Alert
@@ -67,19 +68,24 @@ function ForgotPassword() {
           />
         )}
         <div>
-          <label htmlFor="email" className="label font-semibold">
+          <label htmlFor="email" className="font-semibold label">
             Email
           </label>
           <input
             id="email"
             type="email"
             placeholder="Ingresa tu email"
-            className="input input-bordered w-full max-w-xs focus:outline-accent-focus"
+            className="w-full max-w-xs input input-bordered focus:outline-accent-focus"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            data-cy="email-input"
           />
         </div>
-        <button className="btn btn-primary btn-block" type="submit">
+        <button
+          className="btn btn-primary btn-block"
+          type="submit"
+          data-cy="submit-forgot-password"
+        >
           <span>Recuperar cuenta</span>
         </button>
       </form>
@@ -88,7 +94,8 @@ function ForgotPassword() {
         <span className="text-gray-400">Ya tienes una cuenta?</span>
         <Link
           to="/"
-          className="text-accent text-sm font-semibold hover:underline"
+          className="text-sm font-semibold text-accent hover:underline"
+          data-cy="login-link"
         >
           {" "}
           Inicia sesión
@@ -97,7 +104,7 @@ function ForgotPassword() {
           <span className="text-gray-400">No tienes una cuenta?</span>
           <Link
             to="/register"
-            className="text-accent text-sm font-semibold hover:underline"
+            className="text-sm font-semibold text-accent hover:underline"
           >
             {" "}
             Regístrate

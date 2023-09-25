@@ -30,10 +30,10 @@ function NewCollaborator() {
 
   return (
     <>
-      <h1 className="text-4xl text-accent font-heading font-bold text-center mt-5">
+      <h1 className="mt-5 text-4xl font-bold text-center text-accent font-heading">
         Agregar colaborador al proyecto
         <br />
-        <span className="text-gray-400 font-semibold text-lg">
+        <span className="text-lg font-semibold text-gray-400">
           {project?.name}
         </span>
       </h1>
@@ -46,16 +46,16 @@ function NewCollaborator() {
         <Loading />
       ) : collaborator?._id ? (
         <div className="mt-10">
-          <div className="bg-base-300 p-5 rounded-lg shadow mb-4 max-w-3xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between md:items-center gap-2 flex-wrap md:flex-nowrap">
+          <div className="max-w-3xl p-5 mx-auto mb-4 rounded-lg shadow bg-base-300">
+            <div className="flex flex-col flex-wrap justify-between gap-2 md:flex-row md:items-center md:flex-nowrap">
               <div>
                 <h4 className="text-2xl font-bold text-gray-700">
                   {collaborator.name}
                 </h4>
-                <p className="text-gray-600 font-light">{collaborator.email}</p>
+                <p className="font-light text-gray-600">{collaborator.email}</p>
               </div>
               <button
-                className="btn btn-outline btn-neutral mt-5 md:mt-0"
+                className="mt-5 btn btn-outline btn-neutral md:mt-0"
                 type="button"
                 onClick={() =>
                   addCollaborator({
@@ -64,6 +64,7 @@ function NewCollaborator() {
                 }
                 title="Agregar colaborador"
                 aria-label="Agregar colaborador"
+                data-cy="add-collaborator-button"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -80,8 +81,8 @@ function NewCollaborator() {
         </div>
       ) : (
         <div className="mt-10">
-          <div className="bg-base-300 p-5 rounded-lg shadow mb-4 max-w-sm mx-auto">
-            <div className="flex justify-center items-center">
+          <div className="max-w-sm p-5 mx-auto mb-4 rounded-lg shadow bg-base-300">
+            <div className="flex items-center justify-center">
               <h4 className="card-title">No hay resultados</h4>
             </div>
           </div>

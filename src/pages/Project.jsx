@@ -74,7 +74,7 @@ function Project() {
         {loading ? (
           <Loading />
         ) : (
-          <div className="max-w-7xl mx-auto mt-10">
+          <div className="mx-auto mt-10 max-w-7xl">
             <div className="mt-5">
               {alert.title && alert.message && (
                 <Alert
@@ -85,18 +85,19 @@ function Project() {
               )}
             </div>
             <div className="mt-5">
-              <div className="flex justify-between items-center gap-4 flex-wrap md:flex-nowrap">
-                <h2 className="text-3xl text-accent font-heading font-bold">
+              <div className="flex flex-wrap items-center justify-between gap-4 md:flex-nowrap">
+                <h2 className="text-3xl font-bold text-accent font-heading">
                   {project.name}
                 </h2>
                 {admin && (
-                  <div className="w-full md:w-auto mt-5 md:mt-0">
+                  <div className="w-full mt-5 md:w-auto md:mt-0">
                     <div className="flex flex-col gap-2 md:flex-row md:items-center">
                       <Link
                         to={`/projects/edit/${id}`}
                         className="btn md:btn-square btn-outline btn-neutral"
                         title="Editar proyecto"
                         aria-label="Editar proyecto"
+                        data-cy="edit-project-link"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -115,6 +116,7 @@ function Project() {
                         onClick={() => handleModalOpen("delete-modal")}
                         title="Eliminar proyecto"
                         aria-label="Eliminar proyecto"
+                        data-cy="delete-project-btn"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -157,10 +159,11 @@ function Project() {
             {admin && (
               <button
                 type="button"
-                className="btn btn-primary mt-10 md:mt-5 w-full md:w-auto"
+                className="w-full mt-10 btn btn-primary md:mt-5 md:w-auto"
                 onClick={() => handleModalOpen("create-task-modal")}
                 title="Crear tarea"
                 aria-label="Crear tarea"
+                data-cy="create-task-btn"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -192,18 +195,24 @@ function Project() {
               secondBtnText="Guardar"
             />
 
-            <h2 className="text-xl font-bold my-10">Tareas del proyecto</h2>
+            <h2 className="my-10 text-xl font-bold">Tareas del proyecto</h2>
 
             {project.tasks?.length === 0 ? (
-              <div className="card compact bordered bg-base-200 shadow my-5">
+              <div className="my-5 shadow card compact bordered bg-base-200">
                 <div className="card-body">
-                  <h3 className="card-title self-center">
+                  <h3
+                    className="self-center card-title"
+                    data-cy="no-tasks-text"
+                  >
                     No hay tareas en este proyecto
                   </h3>
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+              <div
+                className="grid grid-cols-1 gap-5 mt-5 md:grid-cols-2 lg:grid-cols-3"
+                data-cy="tasks-list"
+              >
                 {project.tasks?.map((task) => (
                   <Task
                     key={task._id}
@@ -216,7 +225,7 @@ function Project() {
 
             {admin && (
               <>
-                <div className="flex justify-between items-center my-10">
+                <div className="flex items-center justify-between my-10">
                   <h2 className="text-xl font-bold">
                     Colaboradores del proyecto
                   </h2>
@@ -226,6 +235,7 @@ function Project() {
                       className="btn btn-square btn-outline btn-neutral"
                       title="Agregar colaborador"
                       aria-label="Agregar colaborador"
+                      data-cy="add-collaborator-link"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -241,9 +251,12 @@ function Project() {
 
                 <div className="mt-5">
                   {project.collaborators?.length === 0 ? (
-                    <div className="card compact bordered bg-base-200 shadow">
+                    <div className="shadow card compact bordered bg-base-200">
                       <div className="card-body">
-                        <h3 className="card-title self-center">
+                        <h3
+                          className="self-center card-title"
+                          data-cy="no-collaborators-text"
+                        >
                           No hay colaboradores en este proyecto
                         </h3>
                       </div>

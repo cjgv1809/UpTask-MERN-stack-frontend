@@ -2,12 +2,15 @@
 function Alert({ title, message, error }) {
   return (
     <div
-      className={`alert ${error ? "alert-error" : "alert-success"} flex items-start`}
+      data-cy="alert"
+      className={`alert ${
+        error ? "alert-error" : "alert-success"
+      } flex items-start`}
     >
       {error ? (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="stroke-current shrink-0 h-6 w-6"
+          className="w-6 h-6 stroke-current shrink-0"
           fill="none"
           viewBox="0 0 24 24"
         >
@@ -21,7 +24,7 @@ function Alert({ title, message, error }) {
       ) : (
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="stroke-current shrink-0 h-6 w-6"
+          className="w-6 h-6 stroke-current shrink-0"
           fill="none"
           viewBox="0 0 24 24"
         >
@@ -34,8 +37,12 @@ function Alert({ title, message, error }) {
         </svg>
       )}
       <div className="text-left">
-        <h4 className="font-bold">{title}</h4>
-        <p className="font-normal">{message}</p>
+        <h4 className="font-bold" data-cy="alert-title">
+          {title}
+        </h4>
+        <p className="font-normal" data-cy="alert-message">
+          {message}
+        </p>
       </div>
     </div>
   );

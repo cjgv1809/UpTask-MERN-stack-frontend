@@ -7,7 +7,7 @@ function Projects() {
 
   return (
     <>
-      <h1 className="text-4xl text-accent font-heading font-bold text-center mt-5">
+      <h1 className="mt-5 text-4xl font-bold text-center text-accent font-heading">
         Proyectos
       </h1>
 
@@ -20,9 +20,11 @@ function Projects() {
       )}
 
       {projects.length === 0 ? (
-        <p className="text-center mt-10">No hay proyectos</p>
+        <p className="mt-10 text-center" data-cy="no-projects-text">
+          No hay proyectos
+        </p>
       ) : (
-        <div className="mt-10">
+        <div className="mt-10" data-cy="projects-list">
           {projects.map((project) => (
             <PreviewProject key={project._id} project={project} />
           ))}

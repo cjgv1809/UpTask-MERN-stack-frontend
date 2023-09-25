@@ -127,7 +127,7 @@ const ProjectsProvider = ({ children }) => {
     };
 
     getProjects();
-  }, [auth]);
+  }, [auth, projects.length]);
 
   useEffect(() => {
     // eslint-disable-next-line no-undef

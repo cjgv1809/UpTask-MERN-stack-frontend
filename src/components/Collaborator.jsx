@@ -5,19 +5,23 @@ function Collaborator({ collaborator }) {
   const { handleDeleteCollaboratorModal } = useProjects();
 
   return (
-    <div className="card compact bordered bg-base-200 shadow z-10 lg:z-40">
+    <div
+      className="z-10 mb-4 shadow card compact bordered bg-base-200 lg:z-40"
+      data-cy="collaborators-list"
+    >
       <div className="card-body">
-        <div className="flex flex-col md:flex-row justify-between md:items-center gap-2 flex-wrap md:flex-nowrap">
+        <div className="flex flex-col flex-wrap justify-between gap-2 md:flex-row md:items-center md:flex-nowrap">
           <div>
             <h4 className="card-title">{collaborator.name}</h4>
             <p className="card-subtitle">{collaborator.email}</p>
           </div>
           <button
-            className="btn btn-outline btn-primary mt-5 md:mt-0"
+            className="mt-5 btn btn-outline btn-primary md:mt-0"
             type="button"
             title="Eliminar colaborador"
             onClick={() => handleDeleteCollaboratorModal(collaborator)}
             aria-label="Eliminar colaborador"
+            data-cy="delete-collaborator-button"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

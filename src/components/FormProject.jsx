@@ -54,7 +54,11 @@ function FormProject() {
   };
 
   return (
-    <form className="mt-5 max-w-sm mx-auto" onSubmit={handleSubmit}>
+    <form
+      className="max-w-sm mx-auto mt-5"
+      onSubmit={handleSubmit}
+      data-cy="submit-project"
+    >
       {alert.title && alert.message && (
         <Alert
           title={alert.title}
@@ -62,7 +66,7 @@ function FormProject() {
           error={alert.error}
         />
       )}
-      <div className="form-control mb-2">
+      <div className="mb-2 form-control">
         <label className="label" htmlFor="project-name">
           <span className="label-text">Nombre del proyecto</span>
         </label>
@@ -73,23 +77,25 @@ function FormProject() {
           className="input input-bordered"
           value={name}
           onChange={(e) => setName(e.target.value)}
+          data-cy="project-name"
         />
       </div>
 
-      <div className="form-control mb-2">
+      <div className="mb-2 form-control">
         <label className="label" htmlFor="description">
           <span className="label-text">Descripción</span>
         </label>
         <textarea
           id="description"
           placeholder="Ingresa descripción del proyecto"
-          className="textarea textarea-bordered h-24 resize-none"
+          className="h-24 resize-none textarea textarea-bordered"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          data-cy="project-description"
         ></textarea>
       </div>
 
-      <div className="form-control mb-2">
+      <div className="mb-2 form-control">
         <label className="label" htmlFor="date">
           <span className="label-text">Fecha de entrega</span>
         </label>
@@ -99,10 +105,11 @@ function FormProject() {
           type="date"
           value={deliveryDate}
           onChange={(e) => setDeliveryDate(e.target.value)}
+          data-cy="project-delivery-date"
         />
       </div>
 
-      <div className="form-control mb-2">
+      <div className="mb-2 form-control">
         <label className="label" htmlFor="client-name">
           <span className="label-text">Nombre del cliente</span>
         </label>
@@ -113,10 +120,15 @@ function FormProject() {
           placeholder="Ingresa nombre del cliente"
           value={client}
           onChange={(e) => setClient(e.target.value)}
+          data-cy="project-client"
         />
       </div>
 
-      <button type="submit" className="btn btn-primary btn-block mt-5">
+      <button
+        type="submit"
+        className="mt-5 btn btn-primary btn-block"
+        data-cy="project-button"
+      >
         <span>{id ? "Actualizar proyecto" : "Crear proyecto"}</span>
       </button>
     </form>

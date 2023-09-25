@@ -20,7 +20,8 @@ function ModalCreateTask({
   const [priority, setPriority] = useState("");
   const [deliveryDate, setDeliveryDate] = useState("");
   const { id: projectId } = useParams();
-  const { handleModalClose, showAlert, submitTask, task, alert } = useProjects();
+  const { handleModalClose, showAlert, submitTask, task, alert } =
+    useProjects();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -85,7 +86,7 @@ function ModalCreateTask({
   return (
     <dialog id={id} className="modal modal-bottom sm:modal-middle">
       <div className="modal-box">
-        {title && <h3 className="font-bold text-lg text-left">{title}</h3>}
+        {title && <h3 className="text-lg font-bold text-left">{title}</h3>}
         {text && <p className="py-4 text-left">{text}</p>}
         <div className="modal-action">
           <form onSubmit={handleSubmit} className="w-full">
@@ -96,7 +97,7 @@ function ModalCreateTask({
                 error={alert.error}
               />
             )}
-            <div className="form-control mb-2">
+            <div className="mb-2 form-control">
               <label className="label" htmlFor="task-name">
                 <span className="label-text">Nombre</span>
               </label>
@@ -107,10 +108,11 @@ function ModalCreateTask({
                 className="input input-bordered"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
+                data-cy="task-name"
               />
             </div>
 
-            <div className="form-control mb-2">
+            <div className="mb-2 form-control">
               <label className="label" htmlFor="task-description">
                 <span className="label-text">Descripción</span>
               </label>
@@ -121,10 +123,11 @@ function ModalCreateTask({
                 className="input input-bordered"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
+                data-cy="task-description"
               />
             </div>
 
-            <div className="form-control mb-2">
+            <div className="mb-2 form-control">
               <label className="label" htmlFor="date">
                 <span className="label-text">Fecha de entrega</span>
               </label>
@@ -134,10 +137,11 @@ function ModalCreateTask({
                 type="date"
                 value={deliveryDate}
                 onChange={(e) => setDeliveryDate(e.target.value)}
+                data-cy="task-delivery-date"
               />
             </div>
 
-            <div className="form-control mb-2">
+            <div className="mb-2 form-control">
               <label className="label" htmlFor="task-priority">
                 <span className="label-text">Prioridad</span>
               </label>
@@ -146,6 +150,7 @@ function ModalCreateTask({
                 id="task-priority"
                 value={priority}
                 onChange={(e) => setPriority(e.target.value)}
+                data-cy="task-priority"
               >
                 <option value="" disabled>
                   Elige una opción
@@ -158,18 +163,19 @@ function ModalCreateTask({
               </select>
             </div>
 
-            <div className="flex flex-col sm:flex-row sm:justify-end gap-2 mt-5">
+            <div className="flex flex-col gap-2 mt-5 sm:flex-row sm:justify-end">
               <button
                 type="button"
-                className="btn flex-1 sm:flex-none"
+                className="flex-1 btn sm:flex-none"
                 onClick={() => handleCancel(id)}
               >
                 {firstBtnText}
               </button>
               <button
                 type="submit"
-                className="btn btn-primary flex-1 sm:flex-none"
+                className="flex-1 btn btn-primary sm:flex-none"
                 onClick={handleAccept}
+                data-cy="submit-task"
               >
                 {secondBtnText}
               </button>

@@ -99,14 +99,15 @@ function Register() {
 
   return (
     <div className="max-w-xl">
-      <h1 className="text-center text-4xl font-bold font-heading leading-9 tracking-wide text-gray-400">
+      <h1 className="text-4xl font-bold leading-9 tracking-wide text-center text-gray-400 font-heading">
         Crea tu cuenta y administra tus{" "}
         <span className="text-accent">proyectos</span>
       </h1>
 
       <form
         onSubmit={handleSubmit}
-        className="my-10 space-y-4 form-control w-full max-w-xs mx-auto"
+        className="w-full max-w-xs mx-auto my-10 space-y-4 form-control"
+        data-cy="register-form"
       >
         {alert.title && alert.message && (
           <Alert
@@ -127,7 +128,7 @@ function Register() {
             type="text"
             name="name"
             placeholder="Ingresa tu nombre"
-            className="input input-bordered w-full max-w-xs focus:outline-accent-focus"
+            className="w-full max-w-xs input input-bordered focus:outline-accent-focus"
             value={registerData.name}
             onChange={(e) =>
               setRegisterData({
@@ -135,6 +136,7 @@ function Register() {
                 name: e.target.value,
               })
             }
+            data-cy="name-input"
           />
         </div>
         <div>
@@ -149,7 +151,7 @@ function Register() {
             type="email"
             name="email"
             placeholder="Ingresa tu email"
-            className="input input-bordered w-full max-w-xs focus:outline-accent-focus"
+            className="w-full max-w-xs input input-bordered focus:outline-accent-focus"
             value={registerData.email}
             onChange={(e) =>
               setRegisterData({
@@ -157,6 +159,7 @@ function Register() {
                 email: e.target.value,
               })
             }
+            data-cy="email-input"
           />
         </div>
         <div>
@@ -171,7 +174,7 @@ function Register() {
             type="password"
             name="password"
             placeholder="Ingresa tu contraseña"
-            className="input input-bordered w-full max-w-xs focus:outline-accent-focus"
+            className="w-full max-w-xs input input-bordered focus:outline-accent-focus"
             value={registerData.password}
             onChange={(e) =>
               setRegisterData({
@@ -179,8 +182,9 @@ function Register() {
                 password: e.target.value,
               })
             }
+            data-cy="password-input"
           />
-          <span className="label-text-alt text-gray-400">
+          <span className="text-gray-400 label-text-alt">
             La contraseña debe tener al menos 6 caracteres
           </span>
         </div>
@@ -196,7 +200,7 @@ function Register() {
             type="password"
             name="repeat-password"
             placeholder="Ingresa tu contraseña"
-            className="input input-bordered w-full max-w-xs focus:outline-accent-focus"
+            className="w-full max-w-xs input input-bordered focus:outline-accent-focus"
             value={registerData.repeatPassword}
             onChange={(e) =>
               setRegisterData({
@@ -204,9 +208,14 @@ function Register() {
                 repeatPassword: e.target.value,
               })
             }
+            data-cy="repeat-password-input"
           />
         </div>
-        <button className="btn btn-primary btn-block" type="submit">
+        <button
+          className="btn btn-primary btn-block"
+          type="submit"
+          data-cy="submit-register"
+        >
           <span>Crear cuenta</span>
         </button>
       </form>
@@ -214,7 +223,8 @@ function Register() {
       <div className="text-center">
         <Link
           to="/forgot-password"
-          className="text-accent text-sm font-semibold hover:underline"
+          className="text-sm font-semibold text-accent hover:underline"
+          data-cy="forgot-password-link"
         >
           ¿Olvidaste tu contraseña?
         </Link>
@@ -223,7 +233,8 @@ function Register() {
           <span className="text-gray-400">¿Ya tienes una cuenta?</span>
           <Link
             to="/"
-            className="text-accent text-sm font-semibold hover:underline"
+            className="text-sm font-semibold text-accent hover:underline"
+            data-cy="login-link"
           >
             {" "}
             Inicia sesión

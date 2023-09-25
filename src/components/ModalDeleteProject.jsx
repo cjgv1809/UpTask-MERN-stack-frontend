@@ -26,38 +26,42 @@ function ModalDeleteProject({
     if (id === "delete-task-modal") {
       handleAccept(handleDeleteTaskModal);
       deleteTask(task);
+      return;
     }
     // delete collaborator
     if (id === "delete-collaborator-modal") {
       handleAccept(handleDeleteCollaboratorModal);
       deleteCollaborator(collaborator);
+      return;
     }
     // delete project
     else {
       handleAccept(true, projectId);
+      return;
     }
   };
 
   return (
     <dialog id={id} className="modal modal-bottom sm:modal-middle">
       <div className="modal-box">
-        {title && <h3 className="font-bold text-lg text-left">{title}</h3>}
+        {title && <h3 className="text-lg font-bold text-left">{title}</h3>}
         {text && <p className="py-4 text-left">{text}</p>}
         <div className="modal-action">
           <form method="dialog" className="w-full">
             {/* if there is a button in form, it will close the modal */}
-            <div className="flex flex-col sm:flex-row sm:justify-end gap-2 mt-5">
+            <div className="flex flex-col gap-2 mt-5 sm:flex-row sm:justify-end">
               <button
                 type="button"
-                className="btn flex-1 sm:flex-none"
+                className="flex-1 btn sm:flex-none"
                 onClick={() => handleModalClose(id)}
               >
                 {firstBtnText}
               </button>
               <button
                 type="submit"
-                className="btn btn-primary flex-1 sm:flex-none"
+                className="flex-1 btn btn-primary sm:flex-none"
                 onClick={() => handleDelete(id)}
+                data-cy="delete-action-button"
               >
                 {secondBtnText}
               </button>

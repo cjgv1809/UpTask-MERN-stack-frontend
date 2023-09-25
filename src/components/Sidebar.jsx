@@ -61,25 +61,25 @@ function Sidebar({ isOpen, toggleSidebar, hamburgerButtonRef }) {
   return (
     <>
       {(shouldRenderSidebar || isOpen) && (
-        <aside className="p-0 lg:drawer lg:drawer-open lg:w-64 bg-base-200 lg:p-5 z-50 lg:z-40">
+        <aside className="z-50 p-0 lg:drawer lg:drawer-open lg:w-64 bg-base-200 lg:p-5 lg:z-40">
           <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
-          <div className="drawer-content flex flex-col items-center justify-center">
+          <div className="flex flex-col items-center justify-center drawer-content">
             {/* Page content here */}
           </div>
-          <div className="drawer-side z-50">
+          <div className="z-50 drawer-side">
             <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-            <ul className="menu p-4 w-auto min-h-screen bg-base-200 text-base-content space-y-3">
+            <ul className="w-auto min-h-screen p-4 space-y-3 menu bg-base-200 text-base-content">
               <div>
                 <Link
                   to="/projects"
                   onClick={toggleSidebar}
-                  className="normal-case text-2xl font-black"
+                  className="text-2xl font-black normal-case"
                 >
                   UpTask
                 </Link>
               </div>
               <div className="divider"></div>
-              <p className="text-xl mt-4 lg:mt-0">
+              <p className="mt-4 text-xl lg:mt-0">
                 Hola, <span className="font-bold">{auth.name}</span>
               </p>
               {/* Sidebar content here */}
@@ -88,6 +88,7 @@ function Sidebar({ isOpen, toggleSidebar, hamburgerButtonRef }) {
                   to="create-project"
                   onClick={toggleSidebar}
                   className="flex items-center"
+                  data-cy="create-project"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -111,6 +112,7 @@ function Sidebar({ isOpen, toggleSidebar, hamburgerButtonRef }) {
                   to="/"
                   onClick={handleLogout}
                   className="flex items-center"
+                  data-cy="logout"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

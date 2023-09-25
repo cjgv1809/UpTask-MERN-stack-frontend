@@ -8,7 +8,7 @@ function Task({ task, handleDeleteTaskModal }) {
   const admin = useAdmin();
 
   return (
-    <div className="card compact bordered bg-base-200 shadow z-10 lg:z-40">
+    <div className="z-10 shadow card compact bordered bg-base-200 lg:z-40">
       <div className="card-body">
         <h3 className="card-title">{task?.name}</h3>
         <p className="text-gray-500">Prioridad: {task?.priority}</p>
@@ -17,7 +17,7 @@ function Task({ task, handleDeleteTaskModal }) {
         {task?.status && (
           <>
             <p className="text-gray-500">Completada por:</p>
-            <div className="badge badge-accent text-white">
+            <div className="text-white badge badge-accent">
               {task?.completed?.name && task?.completed?.name}
             </div>
           </>
@@ -25,27 +25,29 @@ function Task({ task, handleDeleteTaskModal }) {
 
         <div className="form-control">
           <p className="text-gray-500">Estado:</p>
-          <label className="label px-0 cursor-pointer justify-start items-center">
+          <label className="items-center justify-start px-0 cursor-pointer label">
             <input
               type="checkbox"
-              className="toggle toggle-accent mr-4"
+              className="mr-4 toggle toggle-accent"
               onChange={() => completeTask(task?._id)}
               checked={task?.status}
+              data-cy="task-status"
             />
-            <span className="label-text text-neutral font-semibold">
+            <span className="font-semibold label-text text-neutral">
               {task?.status ? "Completa" : "Incompleta"}
             </span>
           </label>
         </div>
 
         {admin && (
-          <div className="flex flex-col md:flex-row md:justify-end gap-2 mt-5 md:mt-0">
+          <div className="flex flex-col gap-2 mt-5 md:flex-row md:justify-end md:mt-0">
             <button
               className="btn md:btn-square btn-outline btn-neutral"
               type="button"
               title="Editar tarea"
               onClick={() => handleEditTaskModal(task)}
               aria-label="Editar tarea"
+              data-cy="edit-task-button"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -63,6 +65,7 @@ function Task({ task, handleDeleteTaskModal }) {
               type="button"
               title="Eliminar tarea"
               onClick={() => handleDeleteTaskModal(task)}
+              data-cy="delete-task-button"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
